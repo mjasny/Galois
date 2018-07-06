@@ -32,7 +32,7 @@ static const char* url  = 0;
 constexpr static const float ALPHA         = 0.85;
 constexpr static const float INIT_RESIDUAL = 1 - ALPHA;
 
-constexpr static const float TOLERANCE   = 1.0e-3;
+constexpr static const float TOLERANCE   = 1.0e-12;
 constexpr static const unsigned MAX_ITER = 1000;
 
 constexpr static const unsigned PRINT_TOP = 20;
