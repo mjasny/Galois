@@ -25,6 +25,7 @@
 #include "galois/graphs/LCGraph.h"
 #include "galois/graphs/TypeTraits.h"
 #include "galois/gstl.h"
+#include "PerfEvent.hpp"
 
 const char* desc =
     "Computes page ranks a la Page and Brin. This is a pull-style algorithm.";
@@ -233,7 +234,10 @@ void prTopological(Graph& graph) {
   computeOutDeg(graph);
   galois::StatTimer prTimer;
   prTimer.start();
-  computePRTopological(graph);
+  {
+    PerfEventBlock e(maxIterations);
+    computePRTopological(graph);
+  }
   prTimer.stop();
 }
 
